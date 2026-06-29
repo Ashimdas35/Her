@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Memories Timeline ❤️</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
 
         body {
             font-family: 'Arial';
@@ -30,7 +27,7 @@
         }
 
         .timeline {
-            width: 60%;
+            width: 50%;
             margin: auto;
             position: relative;
             padding: 10px 0;
@@ -39,12 +36,11 @@
         .timeline::before {
             content: "";
             position: absolute;
-            width: 2px;
+            width: 4px;
             background: #ff99c8;
             top: 0;
             bottom: 0;
-            left: 55%;
-            margin-left: -2px;
+            left: 49%;
         }
 
         .event {
@@ -254,11 +250,18 @@
 
         body.mobile-device .timeline {
             width: 100%;
+            position: relative;
             padding: 20px 10px;
         }
 
         body.mobile-device .timeline::before {
-            display: none;
+            content: "";
+            position: absolute;
+            width: 1px;
+            background: #ff99c8;
+            top: 0;
+            bottom: 0;
+            left: 49%;
         }
 
         body.mobile-device .event {
@@ -268,7 +271,18 @@
         }
 
         body.mobile-device .event::after {
-            display: none;
+            content: "❤️";
+            position: absolute;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #ff99c8;
+            border-radius: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 7px;
         }
 
         body.mobile-device .event .content {
@@ -414,15 +428,12 @@
             }, 7000);
         }
         setInterval(createHeart, 400);
-    </script>
-    <script>
+
         document.body.addEventListener('click', () => {
             const music = document.getElementById('bgMusic');
             music.play();
         });
-    </script>
 
-    <script>
         const petalsContainer = document.querySelector('.petals');
         function createPetal() {
             const petal = document.createElement('div');
@@ -437,8 +448,7 @@
             }, 9000);
         }
         setInterval(createPetal, 450);
-    </script>
-    <script>
+
         const sparklesContainer = document.querySelector('.sparkles');
         function createSparkle() {
             const sparkle = document.createElement('div');
@@ -451,8 +461,7 @@
             }, 7000);
         }
         setInterval(createSparkle, 300);
-    </script>
-    <script>
+
         function updateClass() {
             const isMobile = window.innerWidth <= 768;
             document.body.classList.toggle('mobile-device', isMobile);
