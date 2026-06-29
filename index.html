@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Memories Timeline ❤️</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Arial';
             background: #fff6fb;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         header {
@@ -191,59 +196,6 @@
             }
         }
 
-        img,
-        video {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /*CSS compatibility for mobile devices*/
-
-        body {
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            /* readable without zoom */
-            margin: 0;
-            padding: 0;
-            line-height: 1.5;
-        }
-
-        .container {
-            width: 100%;
-            padding: 1rem;
-            box-sizing: border-box;
-        }
-
-        .card {
-            background: #f8f8f8;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-        }
-
-        /* Tablet and up */
-        @media (min-width: 768px) {
-            .container {
-                display: flex;
-                gap: 1rem;
-            }
-
-            .card {
-                flex: 1;
-            }
-        }
-
-        /* Desktop and up */
-        @media (min-width: 1024px) {
-            body {
-                font-size: 18px;
-            }
-        }
-
-
-        /*Petals CSS */
-        /* Falling Rose Petals */
         .petals {
             position: fixed;
             top: 0;
@@ -280,6 +232,96 @@
                 opacity: 0;
             }
         }
+
+        /* CSS compatibility for mobile devices */
+        .desktop-only {
+            display: block;
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        body.mobile-device header {
+            font-size: 22px;
+            padding: 24px 16px;
+        }
+
+        body.mobile-device .timeline {
+            width: 100%;
+            padding: 20px 10px;
+        }
+
+        body.mobile-device .timeline::before {
+            display: none;
+        }
+
+        body.mobile-device .event {
+            width: 100%;
+            padding: 12px 0 18px;
+            left: 0 !important;
+        }
+
+        body.mobile-device .event::after {
+            display: none;
+        }
+
+        body.mobile-device .event .content {
+            padding: 15px;
+        }
+
+        body.mobile-device .petal {
+            width: 30px;
+            height: 30px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            header {
+                font-size: 22px;
+                padding: 24px 16px;
+            }
+
+            .timeline {
+                width: 100%;
+                padding: 20px 10px;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .event {
+                width: 100%;
+                padding: 12px 0 18px;
+                left: 0 !important;
+            }
+
+            .event::after {
+                display: none;
+            }
+
+            .event .content {
+                padding: 15px;
+            }
+
+            .petal {
+                width: 30px;
+                height: 30px;
+            }
+
+            .desktop-only {
+                display: none;
+            }
+
+            .mobile-only {
+                display: block;
+            }
+        }
     </style>
 </head>
 
@@ -313,7 +355,7 @@
             <img src="src/Loved.jpg" alt="Memory 3">
             <div class="content">
                 <h3>The day I fell for you🥰😍</h3>
-                <p>Darling, you're so beautiful😍🥰💞❤️. Remember the day, we felt the butterflies together🦋 holding
+                <p>Darling, you're so beautiful😍🥰💞❤️. Remember the day, we saw the butterflies together🦋 holding
                     hands & walking down the street, I was too shy then🙈</p>
             </div>
         </div>
@@ -321,15 +363,14 @@
             <img src="src/Pookie.jpg" alt="Memory 4">
             <div class="content">
                 <h3>Our first kiss💋</h3>
-                <p>The day we kissed for the first time, igniting the fire🔥.</p>
+                <p>The day we kissed for the first time, igniting the fire inside🔥.</p>
             </div>
         </div>
         <div class="event left">
             <img src="src/Ride.jpg" alt="Memory 5">
             <div class="content">
-                <h3>Adventures Together 🏞️</h3>
-                <p>You showed courage to overcome your fear of the ride & thankfully it gone well, you enjoyed it with
-                    me😘.</p>
+                <h3>Gandhi Mela ride🎡</h3>
+                <p>You showed courage & overcame your fear of this ride. Thankfully it went well and you enjoyed it. My brave girl😘.</p>
             </div>
         </div>
         <div class="event right">
@@ -411,7 +452,16 @@
         }
         setInterval(createSparkle, 300);
     </script>
+    <script>
+        function updateClass() {
+            const isMobile = window.innerWidth <= 768;
+            document.body.classList.toggle('mobile-device', isMobile);
+            document.body.classList.toggle('desktop-device', !isMobile);
+        }
 
+        window.addEventListener('resize', updateClass);
+        window.addEventListener('load', updateClass);
+    </script>
 </body>
 
 </html>
