@@ -38,7 +38,7 @@
             background: #ff99c8;
             top: 0;
             bottom: 0;
-            left: 50%;
+            left: 55%;
             margin-left: -2px;
         }
 
@@ -70,7 +70,7 @@
             left: 50%;
         }
 
-       
+
         .event::after {
             content: "❤️";
             position: absolute;
@@ -191,6 +191,57 @@
             }
         }
 
+        img,
+        video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /*CSS compatibility for mobile devices*/
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            /* readable without zoom */
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 100%;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background: #f8f8f8;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Tablet and up */
+        @media (min-width: 768px) {
+            .container {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .card {
+                flex: 1;
+            }
+        }
+
+        /* Desktop and up */
+        @media (min-width: 1024px) {
+            body {
+                font-size: 18px;
+            }
+        }
+
+
         /*Petals CSS */
         /* Falling Rose Petals */
         .petals {
@@ -247,7 +298,8 @@
             <img src="src/Start.jpg" alt="Memory 1">
             <div class="content">
                 <h3>Where it all began ✨</h3>
-                <p>The first day I texted you... I had no idea you would become the most important part of my life🫂.</p>
+                <p>The first day I texted you... I had no idea you would become the most important part of my life🫂.
+                </p>
             </div>
         </div>
         <div class="event right">
@@ -261,7 +313,8 @@
             <img src="src/Loved.jpg" alt="Memory 3">
             <div class="content">
                 <h3>The day I fell for you🥰😍</h3>
-                <p>Darling, you're so beautiful😍🥰💞❤️. Remember the day, we felt the butterflies together🦋 holding hands & walking down the street, I was too shy then🙈</p>
+                <p>Darling, you're so beautiful😍🥰💞❤️. Remember the day, we felt the butterflies together🦋 holding
+                    hands & walking down the street, I was too shy then🙈</p>
             </div>
         </div>
         <div class="event right">
@@ -275,14 +328,16 @@
             <img src="src/Ride.jpg" alt="Memory 5">
             <div class="content">
                 <h3>Adventures Together 🏞️</h3>
-                <p>You showed courage to overcome your fear of the ride & thankfully it gone well, you enjoyed it with me😘.</p>
+                <p>You showed courage to overcome your fear of the ride & thankfully it gone well, you enjoyed it with
+                    me😘.</p>
             </div>
         </div>
         <div class="event right">
             <img src="src/Together.jpg" alt="Memory 6">
             <div class="content">
                 <h3>My love❤️</h3>
-                <p>You make my world brighter, happier & with full of love. We look so perfect together! You are my favorite person, my peace; I Love YOU Shree💖.</p>
+                <p>You make my world brighter, happier & with full of love. We look so perfect together! You are my
+                    favorite person, my peace; <br> I Love YOU Shree💖.</p>
             </div>
         </div>
         <div class="hearts"></div>
@@ -325,7 +380,7 @@
             music.play();
         });
     </script>
-    
+
     <script>
         const petalsContainer = document.querySelector('.petals');
         function createPetal() {
